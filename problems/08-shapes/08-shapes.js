@@ -21,5 +21,56 @@ Example for printShape("Diamond", 5, "*");
   * 
 */
 function printShape(shape, height, character) {
-  
+  switch(shape) {
+    case 'square': //created 2 cases for each shape //considering the use of upper case
+    case 'Square':
+     return square( height, character) //calling their indiv func to return the square per the height & charc
+    break;
+    case 'triangle':
+    case 'Triangle':
+    return triangle(height, character) //calling their indiv func to return the square per the height & charc
+    break;
+    case 'diamond':
+    case 'Diamond':
+    return diamond(height,character) //calling their indiv func to return the square per the height & charc
+    default:
+    console.log("You have entered an invalid shape.") //default case lets the user know they entered an invalid shape
+    break;
+  }  
 }
+function square(height, character){
+  let s = ''
+    for (let i = 0 ; i < height ; i++){ //loops height times  (row)
+      for (let j = 0 ; j < height ; j++){ //loops & prints charc through each colunm height times
+        s = s + character //use a string to push in the charcs are each row
+      }
+      s = s + '\n' //breaks the line to build a square vs printing on same line
+     }
+    return s
+}
+function triangle(height, character){
+  let s = ''
+  for (let i = 0 ; i < height ; i++){ //loops height times  (row)
+    for (let j = 0 ; j < i+1 ; j++){ //loops & prints charc (number of current i+1) on each row 
+      s = s + character //use a string to push in the charcs are each row
+    } 
+    s = s + '\n' //breaks the line to build a square vs printing on same line
+   }
+  return s
+}
+function diamond(height, character){
+ // let s = ''
+  //for (let i = 0 ; i < height/2 ; i++){
+   // for (let j = 0 ; j < i+1 ; j++){
+    //  s = s + character
+    //}
+   //s = s + '\n'
+   //}
+  return s
+}
+console.log( printShape('square',4, '$')); 
+console.log( printShape('Square',4, '#')); 
+console.log( printShape('triangle',4, '@')); 
+console.log( printShape('triangle',10, '@'));
+//console.log(5 / 2);
+
