@@ -59,18 +59,66 @@ function triangle(height, character){
   return s
 }
 function diamond(height, character){
- // let s = ''
-  //for (let i = 0 ; i < height/2 ; i++){
-   // for (let j = 0 ; j < i+1 ; j++){
-    //  s = s + character
-    //}
-   //s = s + '\n'
-   //}
+ let s = ''
+ let numSpace = height-1 
+  for (let i = 1 ; i <= height ; i++){ //creating the top half of the diamond
+   for (let j=1;j<= numSpace;j++){ //loops to calc and make the correct number of spaces
+      s = s + ' '  }
+    numSpace--;
+    for (k=1; k<=2*i-1;k++ ){  //loops to push not the string the correct number of characters
+      s = s + character  }
+    s = s + '\n'  //breaks the line to build a diamond vs printing on same line
+  }
+  numSpace=1;
+    for(m=1;m<= height;m++){         //creating the second half of the diamond
+        for(o=1;o<=numSpace;o++)//loops to calc and make the correct number of spaces
+        { s = s + ' '    }
+        numSpace++;
+        for(p=1;p<=2*(height-m)-1;p++)    //loops to push not the string the correct number of characters
+        {  s = s + character  }
+         s = s + '\n'   //breaks the line to build a diamond vs printing on same line
+        }
   return s
 }
 console.log( printShape('square',4, '$')); 
+/*
+$$$$
+$$$$
+$$$$
+$$$$
+*/
 console.log( printShape('Square',4, '#')); 
+/*
+####
+####
+####
+####
+*/
 console.log( printShape('triangle',4, '@')); 
+/*
+@
+@@
+@@@
+@@@@
+*/
 console.log( printShape('triangle',10, '@'));
-//console.log(5 / 2);
-
+/*
+@
+@@
+@@@
+@@@@
+@@@@@
+@@@@@@
+@@@@@@@
+@@@@@@@@
+@@@@@@@@@
+@@@@@@@@@@
+*/
+console.log( printShape('diamond',3, '%'));
+/*
+ %
+%%%
+%%%%%
+%%%
+ %
+*/
